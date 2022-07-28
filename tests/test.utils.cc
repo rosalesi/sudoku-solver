@@ -9,17 +9,13 @@ class UtilsTest : public ::testing::Test {
     std::vector<std::string> secondExpected;
     std::vector<std::string> thirdExpected;
     void SetUp() override {
-      firstExpected.push_back("one");
-      firstExpected.push_back("two");
-      firstExpected.push_back("three");
-      for (int i = 1; i < 10; i ++) {
-        secondExpected.push_back(std::to_string(i));
-      }
-      thirdExpected.push_back("0");
+      firstExpected = {"one", "two", "three"};
+      secondExpected = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+      thirdExpected = {"0"};
     }
 };
 
-// Test for the method split on a Utils
+// Tests for the method split on a Utils
 TEST_F(UtilsTest, testSplit) {
   EXPECT_EQ(utils.split("one two three"), firstExpected);
   EXPECT_EQ(utils.split("1 2 3 4 5 6 7 8 9"), secondExpected);
