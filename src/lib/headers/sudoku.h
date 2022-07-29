@@ -13,6 +13,9 @@ class Sudoku {
         // Custom constructor for a Sudoku puzzle
         Sudoku(std::vector< std::vector<std::string> > aPuzzle);
 
+        // Get puzzle
+        std::vector< std::vector<std::string> > getPuzzle();
+        
         // Is the Sudoku puzzle solved?
         bool isSolved();
 };

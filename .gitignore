@@ -35,3 +35,4 @@ bazel-bin/
 bazel-out/
 bazel-sudoku-solver/
 bazel-testlogs/
+.vscode/

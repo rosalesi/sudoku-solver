@@ -4,12 +4,26 @@
 // Tests for the class Sudoku
 class SudokuTest : public::testing::Test {
     protected:
+        std::vector< std::vector<std::string> > defaultSudoku;
+        std::vector< std::vector<std::string> > secondVec;
+
         Sudoku firstPuzzle;
         Sudoku secondPuzzle;
         Sudoku thirdPuzzle;
         Sudoku fourthPuzzle;
         void SetUp() override {
-            std::vector<std::vector<std::string> > secondVec {
+            defaultSudoku = {
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0", "0"}
+            };
+            secondVec = {
                 {"8", "2", "7", "1", "5", "4", "3", "9", "6"},
                 {"9", "6", "5", "3", "2", "7", "1", "4", "8"},
                 {"3", "4", "1", "6", "8", "9", "7", "5", "2"},
@@ -50,10 +64,16 @@ class SudokuTest : public::testing::Test {
         }
 };
 
-// Tests for the method isSolved on a Sudoku
+// Tests for the constructor Methods on a Sudoku
+TEST_F(SudokuTest, testConstructorsAndGetPuzzle) {
+    EXPECT_EQ(firstPuzzle.getPuzzle(), defaultSudoku);
+    EXPECT_EQ(secondPuzzle.getPuzzle(), secondVec);
+}
+
+// // Tests for the method isSolved on a Sudoku
 TEST_F(SudokuTest, testIsSolved) {
-    EXPECT_FALSE(firstPuzzle.isSolved());
-    EXPECT_TRUE(secondPuzzle.isSolved());
-    EXPECT_TRUE(thirdPuzzle.isSolved());
-    EXPECT_FALSE(fourthPuzzle.isSolved());
+    EXPECT_EQ(firstPuzzle.isSolved(), false);
+    EXPECT_EQ(secondPuzzle.isSolved(), true);
+    EXPECT_EQ(thirdPuzzle.isSolved(), true);
+    EXPECT_EQ(fourthPuzzle.isSolved(), false);
 }
