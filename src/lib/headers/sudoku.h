@@ -2,6 +2,9 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <map>
+#include <set>
+#include <tuple>
 
 class Sudoku {
     private:
@@ -18,4 +21,10 @@ class Sudoku {
         
         // Is the Sudoku puzzle solved?
         bool isSolved();
+
+        // Print Sudoku
+        void printSudoku();
+
+        // Solve the sudoku
+        Sudoku solve();
 };
